@@ -1,10 +1,297 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>SpiritCursed</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Funghi Games projects, ROM hacks, randomizers, and editors." />
+  <title>Funghi Games</title>
+
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --panel: #111418;
+      --border: #20252b;
+      --text: #f2f4f7;
+      --muted: #9aa3ad;
+      --link: #cfe8ff;
+      --max: 920px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(11, 13, 16, 0.96);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .socials a {
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9px;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .socials a:hover {
+      color: var(--text);
+      border-color: var(--border);
+      background: var(--panel);
+    }
+
+    .socials svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    main {
+      padding: 42px 0 80px;
+    }
+
+    .game-section {
+      margin-top: 46px;
+    }
+
+    .game-section:first-child {
+      margin-top: 0;
+    }
+
+    .game-section h2 {
+      margin: 0 0 6px;
+      font-size: 1.5rem;
+      letter-spacing: -0.03em;
+    }
+
+    .game-section > p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .projects {
+      display: grid;
+      gap: 10px;
+    }
+
+    .project {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 18px;
+      transition: border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    .project:hover {
+      border-color: #303740;
+      transform: translateY(-1px);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .project h3 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .status {
+      color: var(--muted);
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    .project p {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .project-links {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .project-links a {
+      color: var(--link);
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      padding: 24px 0 32px;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 680px) {
+      .header-inner {
+        gap: 12px;
+      }
+
+      .project-top {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello!</h1>
-  <p>My website is working.</p>
+  <header>
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">Funghi Games</a>
+
+      <nav class="socials" aria-label="Social links">
+        <a href="https://discord.gg/7E4rGEY4cd" target="_blank" rel="noopener noreferrer" aria-label="Discord" title="Discord">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.3 4.4A16.4 16.4 0 0 0 16.2 3l-.5 1a15.1 15.1 0 0 0-7.4 0L7.8 3a16.5 16.5 0 0 0-4.1 1.4C1.1 8.2.4 12 .8 15.8a16.8 16.8 0 0 0 5 2.5l1.2-1.6a10.6 10.6 0 0 1-1.8-.9l.4-.3a11.8 11.8 0 0 0 12.8 0l.5.3a12 12 0 0 1-1.9.9l1.2 1.6a16.8 16.8 0 0 0 5-2.5c.5-4.4-.8-8.2-2.9-11.4ZM8.5 14.2c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.9.9 1.8 2c0 1.1-.8 2-1.8 2Zm7 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/>
+          </svg>
+        </a>
+
+        <a href="https://x.com/SpiritCursedDev" target="_blank" rel="noopener noreferrer" aria-label="X" title="X">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18.9 2H22l-6.8 7.8L23 22h-6.1l-4.8-6.3L6.6 22H3.5l7.2-8.2L3.2 2h6.3l4.3 5.7L18.9 2Zm-1.1 17.9h1.7L8.6 4H6.8l11 15.9Z"/>
+          </svg>
+        </a>
+
+        <a href="https://www.youtube.com/@SpiritCursed" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/>
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap">
+      <section class="game-section">
+        <h2>Super Ghouls 'n Ghosts</h2>
+        <p>SNES</p>
+
+        <div class="projects">
+          <article class="project">
+            <div class="project-top">
+              <h3>Randomizer</h3>
+              <span class="status">Beta 1</span>
+            </div>
+            <p>Randomizer ROM hack for the USA version of Super Ghouls 'n Ghosts.</p>
+            <div class="project-links">
+              <a href="https://github.com/SpiritCursed/super-ghouls-n-ghosts-randomizer/releases/download/Beta_1/SuperGhoulsNGhosts.Randomizer.Beta1.zip">Download</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-top">
+              <h3>Metroidvania ROM Hack</h3>
+              <span class="status">In development</span>
+            </div>
+            <p>A more exploration focused take on Super Ghouls 'n Ghosts.</p>
+          </article>
+
+          <article class="project">
+            <div class="project-top">
+              <h3>Super Ghouls 'n Ghosts Editor</h3>
+              <span class="status">In development</span>
+            </div>
+            <p>An editor for modifying the game and supporting future ROM hacking projects.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="game-section">
+        <h2>Dragon Quest IV, V, VI</h2>
+        <p>Nintendo DS</p>
+
+        <div class="projects">
+          <article class="project">
+            <div class="project-top">
+              <h3>Zenith Creator DS</h3>
+              <span class="status">In development</span>
+            </div>
+            <p>ROM editor for the Nintendo DS versions of Dragon Quest IV, V, and VI.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      Funghi Games
+    </div>
+  </footer>
 </body>
 </html>
